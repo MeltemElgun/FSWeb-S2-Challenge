@@ -103,11 +103,12 @@ console.log(bircumle=(cumleKur("Ben"+ " iyi" +" bir" +" yazılımcı"+ " olacağ
 	*/
 	
 
-function cumlelereDonustur(dizi,ayrac=",",ayracKesme){
-	 return dizi.map(item=>item.join(ayrac).toString(ayracKesme));
-}
-
-console.log(cumlelereDonustur(cumleler," ",","))
+	function cumlelereDonustur(dizi,ayrac=",",ayracKesme){
+		let yeniDizi= dizi.map(item=>item.join(ayrac).toString(ayracKesme));
+		return yeniDizi
+   }
+   
+   console.log(cumlelereDonustur(cumleler," ",","))
 
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
@@ -119,19 +120,20 @@ console.log(cumlelereDonustur(cumleler," ",","))
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(dizi,cbCumleKur, cbCumlelereDonustur ){
-	let yeni=cbCumlelereDonustur(dizi," ",".");
-   return cbCumleKur(yeni[1],yeni[3],yeni[5],yeni[7],yeni[9]);
-	
-}
-console.log(paragrafOlustur(cumleler,cumleKur, cumlelereDonustur));
+	function paragrafOlustur(dizi,cbCumleKur, cbCumlelereDonustur ){
+		let yeniDizi=cbCumlelereDonustur(dizi," ",".");
+	   let paragraf=cbCumleKur(yeniDizi[1],yeniDizi[3],yeniDizi[5],yeniDizi[7],yeniDizi[9]);
+		return paragraf;
+	}
+	console.log(paragrafOlustur(cumleler,cumleKur, cumlelereDonustur));
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
- meyveler.pop()+meyveler.shift()
+
+meyveler.pop()+meyveler.shift()
 console.log ( meyveler)
  
 /* 			3b.  Bir tavşan ve bir kirpi arkadaşlar sebzeler dizimizin peşine düştü. Tavşan => 🐇 , Kirpi=> 🦔 , Tavşanla kirpi sebzeleri ele geçirmek için bir plan kurdular. Tavşan diziye önden saldıracak, kirpi ise arkalarından dolaşacak. Varsayalım ki arkadaşların planları başarılı oldu. Tavşanı dizinin ilk elemanına 🐇, Kirpiyi dizinin son elemanına ekleyin 🦔 
@@ -141,10 +143,6 @@ console.log ( meyveler)
 
 sebzeler.unshift("🐇")+sebzeler.push("🦔")
 console.log(sebzeler)
-
-
-
-
 
 
 
@@ -171,23 +169,20 @@ console.log(manav)
  */
 			
 
+            
+			let mesaj="Selam :) Nasılsın :d Bugünkü olay çok komikti :p ama sonra çok şaşırdık :o biraz da üzüldük :( ama yine de seviliyorsun <3";
+			
+			function emojileriDonustur(metin,emoji){
 
-	let mesaj="Selam :) Nasılsın :d Bugünkü olay çok komikti :p ama sonra çok şaşırdık :o biraz da üzüldük :( ama yine de seviliyorsun <3";
-	let text=mesaj.toLowerCase;
-
-	let döndürülecek="";
-    function emojileriDonustur(metin,emoji){
-		let index=Object.keys(emoji);
-		let volue=Object.values(emoji);
+				for (let key in emoji) {
+					metin=metin.replaceAll(key.toUpperCase(),emoji[key]);
+					metin=metin.replaceAll(key.toLowerCase(),emoji[key]);
+				}
+				
+		         return metin;
+			  }
 		
-		döndürülecek= metin.replaceAll(index[0],volue[0])
-		.replaceAll(index[1],volue[1]).replaceAll(index[2],volue[2]).replaceAll(index[3],volue[3])
-		.replaceAll(index[4],volue[4]).replaceAll(index[5],volue[5]);
-		return döndürülecek;
-
-	  }
-
-     console.log(emojileriDonustur(mesaj,emojiler))
+			 console.log(emojileriDonustur(mesaj,emojiler))
      
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
